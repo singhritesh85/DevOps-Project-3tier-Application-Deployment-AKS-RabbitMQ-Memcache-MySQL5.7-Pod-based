@@ -1,0 +1,62 @@
+trigger:
+- none
+
+pool: 
+  name: demo
+  demands:
+  - agent.name -equals demo
+
+variables:
+  imagePullSecret: 'dockerhub-auth' 
+
+stages:
+- stage: DockerDBImageBuild
+  displayName: DockerDBImageBuild
+  jobs:
+  - job: DockerDBImageBuild
+    displayName: DockerDBImageBuild
+    steps:
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'DockerHub-ServiceConnection'
+        repository: 'singhritesh85/dexter'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile.mysql'
+        tags: 'latest'
+- stage: MySQLDeployment
+  displayName: MySQLDeployment
+  dependsOn: DockerDBImageBuild
+  jobs:
+  - job: HelmRepoAdd
+    displayName: HelmRepoAdd
+    steps:
+    - checkout: none
+    - task: CmdLine@2
+      inputs:
+        script: |
+          helm repo add stable https://charts.helm.sh/stable
+          helm repo update
+  - deployment: MySQLDeployment
+    displayName: MySQLDeployment
+    environment: "dev"
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: none
+          - task: HelmDeploy@1
+            inputs:
+              connectionType: 'Azure Resource Manager'
+              azureSubscription: 'Azure DevOps Service Connection'
+              azureResourceGroup: 'aks-rg'
+              kubernetesCluster: 'aks-cluster'
+              namespace: 'mysql'
+              command: 'upgrade'
+              chartType: 'Name'
+              chartName: 'stable/mysql'
+              chartVersion: '1.6.9'
+              releaseName: 'mysql'
+              overrideValues: 'image=singhritesh85/dexter,imageTag=latest,persistence.enabled=true,persistence.size=1Gi,service.type=ClusterIP,mysqlRootPassword=Dexter@123,imagePullSecrets[0].name=dockerhub-auth,mysqlDatabase=accounts'
+          
+       
+  
