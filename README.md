@@ -22,11 +22,11 @@ rabbitmqctl set_user_tags test administrator
 rabbitmqctl set_permissions -p / test ".*" ".*" ".*"
 rabbitmqctl set_policy ha-all ".*" '{"ha-mode":"all","ha-sync-mode":"automatic"}' 
 ```
-![image](https://github.com/user-attachments/assets/e4648891-b703-4efd-8bae-f76afd5b3256)
+![image](https://github.com/user-attachments/assets/bd27957f-f652-43cb-83cc-3921d7491845)
 
 Create Ingress rule using the rabbitmq-ingress-rule.yaml file as present in this repository and do the entry in Azure dns-zone for Hosts corresponding to IP Address as shown below.
-![image](https://github.com/user-attachments/assets/7dd2c517-e3a0-4a77-90c3-836cb8b72d82)
-![image](https://github.com/user-attachments/assets/82c379f4-36ea-45b4-8e16-024433e87860)
+![image](https://github.com/user-attachments/assets/b3728c66-ed7f-4a0d-b852-6200b1b07757)
+![image](https://github.com/user-attachments/assets/21d526bb-0287-4592-985d-70cb7dc93236)
 
 ![image](https://github.com/user-attachments/assets/34e243b3-985c-483d-bc8c-f3361d825f05)
 
