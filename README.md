@@ -1,0 +1,1 @@
+# DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL5.7-Pod-based
