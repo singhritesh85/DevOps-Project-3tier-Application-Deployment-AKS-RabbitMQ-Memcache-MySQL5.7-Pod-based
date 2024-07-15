@@ -39,43 +39,43 @@ The source code is present in Azure Repos. I have taken the Source Code present 
 
 For Azure Artifacts, copy below section and paste to pom.xml as I have shown in above screenshot.
 
-![image](https://github.com/user-attachments/assets/5b1b7103-e06b-49ca-8522-9da5c8484d08)
-![image](https://github.com/user-attachments/assets/04b417a3-c738-4a7b-bab7-df23e16c471c)
+![image](https://github.com/user-attachments/assets/85211167-2c8d-42ac-9abf-1f2afc75a0c3)
+![image](https://github.com/user-attachments/assets/54116019-5acf-4113-892d-1f24d77df833)
 
 Provide Contributor Access for Azure Artifacts as shown in screenshot below.
 
-![image](https://github.com/user-attachments/assets/69d235a4-4d1d-4bcc-87d1-29c87629c5f2)
-![image](https://github.com/user-attachments/assets/146adf49-5f7b-4f1f-a565-2a994e50561d)
+![image](https://github.com/user-attachments/assets/04a18c4a-ba4c-437a-8407-ce6fcdcdf297)
+![image](https://github.com/user-attachments/assets/8386d5e4-30fa-4466-a9cb-08226c51968b)
 
 I have created a mysql image and kept it in Docker Hub Repository. While creating mysql pod I imported the .sql extension file db_backup.sql. The Dockerfile to achieve this is as shown below.
 
-![image](https://github.com/user-attachments/assets/0a7df3a3-2c4b-48c3-b85d-69275bc3635e)
+![image](https://github.com/user-attachments/assets/dc716dc8-ad26-4f5c-9aba-539541d0f27c)
 In Dockerfile as shown above in the attached screen-shot, **docker-entrypoint-initdb.d** directory contains the shell-script and .sql extension file which will get executed when container will be created for the first time. You can consider it as for keeping the bootstraping script.
-![image](https://github.com/user-attachments/assets/679ee830-2eb1-4c2e-a3a2-44ebd57f4146)
+![image](https://github.com/user-attachments/assets/dc58a6d2-c099-4a2d-aa8f-2e5c283d77f2)
 
 I have created Service service Connection for SonarQube, Azure Artifacsts, Azure Container Registries and DockerHub Repository as shown below.
-![image](https://github.com/user-attachments/assets/04bc97ba-5be1-4506-8f0e-33e8ed20360f)
+![image](https://github.com/user-attachments/assets/562f2c17-36b2-46aa-bf8d-a384a08d7b58)
 
-![image](https://github.com/user-attachments/assets/e5e0f56b-8624-43d3-bed7-cc26d8cb287d)
+![image](https://github.com/user-attachments/assets/6ad8fe74-c890-4983-bfdc-913048548127)
 
 Now Run the Azure Pipeline. Create the URL using ingress rule for service present in the file ingress-rule.yaml in this repository. Do the entry for this URL with Public IP in Record Set of Azure DNS Zone. Access the newly created URL and provide username admin_vp and password admin_vp.
-![image](https://github.com/user-attachments/assets/835a265d-5248-4ae2-b492-e8d11af9c464)
-![image](https://github.com/user-attachments/assets/b3099186-58a2-49f9-9c2f-eba79b7127aa)
-![image](https://github.com/user-attachments/assets/148f12e0-04fb-466e-9834-8e8b78b10bf7)
-![image](https://github.com/user-attachments/assets/baf0a179-943c-48f5-a511-200f90602ad1)
+![image](https://github.com/user-attachments/assets/25779d9e-fb01-4f73-8c39-fe26dd71098c)
+![image](https://github.com/user-attachments/assets/5eb1099f-5313-4581-85f3-0e96f4bd2fc3)
+![image](https://github.com/user-attachments/assets/d976120b-3e00-4dab-b55a-7845a8f29141)
+![image](https://github.com/user-attachments/assets/6116cfd9-e4d1-42de-9727-6a3ebbf20328)
 
 When you click on the User for the first time it will get the values from MySQL Database and store it in Memcache, so that next time when you click on the same user it will provide the values from the Memcache itself.
 
-![image](https://github.com/user-attachments/assets/85d59593-17c0-4281-bcf5-bfad4c82a77e)
-![image](https://github.com/user-attachments/assets/f430e429-6586-4d28-926c-ba72091ae667)
+![image](https://github.com/user-attachments/assets/733d0066-1e87-49b5-8a1a-71a15b0bb6b5)
+![image](https://github.com/user-attachments/assets/305af053-497a-4fcd-8f2a-53b78093dfa2)
 
 After running the Azure Pipeline Screenshots for RabbitMQ, SonarQube, Azure Artifacts are as shown in the Screenshot below.
 
-![image](https://github.com/user-attachments/assets/034e1384-004c-433a-a75d-03b88cae14bd)
-![image](https://github.com/user-attachments/assets/6ffb11a1-9f5c-475e-8f54-3102dd961b32)
-![image](https://github.com/user-attachments/assets/d7844231-1ec9-4a20-9d3c-6d517dc4acf8)
-![image](https://github.com/user-attachments/assets/f4af3bef-c12b-476d-8951-313fe306942a)
-![image](https://github.com/user-attachments/assets/61bc04b7-6d0c-4c4d-8a8b-492170a3a4e1)
+![image](https://github.com/user-attachments/assets/a97ce945-ee97-4b91-bb55-47b0fd0fc44e)
+![image](https://github.com/user-attachments/assets/45b8bb3a-ee50-4c8a-b6b2-41271170e3e4)
+![image](https://github.com/user-attachments/assets/b67dc904-0600-4382-ae74-29fd908e02dd)
+![image](https://github.com/user-attachments/assets/fe902fdb-18dc-4acd-8fb6-388ab414ba1f)
+![image](https://github.com/user-attachments/assets/64b626c3-e876-405c-911b-461ac1925520)
 
 ```
 Create secret in Kubernetes for DockerHub Repository access
