@@ -30,7 +30,7 @@ Create Ingress rule using the rabbitmq-ingress-rule.yaml file as present in this
 
 ![image](https://github.com/user-attachments/assets/34e243b3-985c-483d-bc8c-f3361d825f05)
 
-The source code is present in Azure Repos. I have taken the Source Code present in GitHub Repository https://github.com/kamalmohan217/Three-tier-WebApplication.git and did changes in pom.xml, Dockerfile, application.properties as shown below.
+The source code is present in Azure Repos. I have taken the Source Code present in GitHub Repository https://github.com/singhritesh85/Three-tier-WebApplication.git and did changes in pom.xml, Dockerfile, application.properties as shown below.
 
 ![image](https://github.com/user-attachments/assets/20d8d1ac-b7c5-4ecd-850a-bc0ba766bfad)
 ![image](https://github.com/user-attachments/assets/c027ad1c-8a88-4f56-838c-659ce79465e8)
@@ -95,7 +95,7 @@ kubectl create secret docker-registry devopsmelacr132827a7-auth --docker-server=
 <br><br/>
 <br><br/>
 ```
-Source Code:-  https://github.com/kamalmohan217/Three-tier-WebApplication.git
+Source Code:-  https://github.com/singhritesh85/Three-tier-WebApplication.git
 ```
 <br><br/>
 <br><br/>
