@@ -39,7 +39,7 @@ stages:
               chartName: 'bitnami/memcached'
               chartVersion: '7.0.0'
               releaseName: 'memcached'
-              overrideValues: 'replicaCount=2,persistence.enabled=true,persistence.size=1Gi,containerPorts.memcached=11211,architecture=high-availability,service.type=ClusterIP,service.ports.memcached=11211'
+              overrideValues: 'replicaCount=2,persistence.enabled=true,persistence.size=1Gi,containerPorts.memcached=11211,architecture=high-availability,service.clusterIP=None,service.ports.memcached=11211'
           
        
   
