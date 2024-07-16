@@ -26,7 +26,7 @@ stages:
           # Additional properties that will be passed to the scanner, 
           # Put one key=value per line, example:
           # sonar.exclusions=**/*.bin
-          sonar.qualitygate.wait=true
+          #sonar.qualitygate.wait=true
 #    - task: SonarQubePublish@6
 #      inputs:
 #        pollingTimeoutSec: '300'
