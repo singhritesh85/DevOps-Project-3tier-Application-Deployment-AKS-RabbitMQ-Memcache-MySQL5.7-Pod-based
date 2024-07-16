@@ -86,7 +86,7 @@ kubectl create secret docker-registry dockerhub-auth --docker-server=docker.io -
 ```
 Create secret in Kubernetes for Azure Container Registries access
 
-kubectl create secret docker-registry devopsmelacr132827a7-auth --docker-server=https://akscontainer24registry.azurecr.io --docker-username=akscontainer24registry --docker-password=cXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXR -n backend
+kubectl create secret docker-registry backend-auth --docker-server=https://akscontainer24registry.azurecr.io --docker-username=akscontainer24registry --docker-password=cXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXR -n backend
 ```
 <br><br/>
 <br><br/>
